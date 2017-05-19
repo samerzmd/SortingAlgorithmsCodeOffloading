@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     Button quickSortBtn;
     @BindView(R.id.insertionSortBtn)
     Button insertionSortBtn;
+    @BindView(R.id.MergeSortBtn)
+    Button mMergeSortBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.quickSortBtn, R.id.insertionSortBtn})
+    @OnClick({R.id.quickSortBtn, R.id.insertionSortBtn,R.id.MergeSortBtn})
     public void onViewClicked(View view) {
-        Intent intent=new Intent(this,SortingActivity.class);
-        intent.putExtra(SortingAlgorithmType.class.getName(),(String)view.getTag());
+        Intent intent = new Intent(this, SortingActivity.class);
+        intent.putExtra(SortingAlgorithmType.class.getName(), (String) view.getTag());
         startActivity(intent);
     }
 }

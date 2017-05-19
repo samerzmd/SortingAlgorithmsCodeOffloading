@@ -28,8 +28,16 @@
                 android:id="@+id/insertionSortBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Insertion sort"
+                android:text="Insertion Sort"
                 android:tag="InsertionSort"/>
+            <!--return to sorting algorithm enum for tag-->
+
+            <Button
+                android:id="@+id/MergeSortBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Merge Sort"
+                android:tag="MergeSort"/>
             <!--return to sorting algorithm enum for tag-->
 
         </LinearLayout>

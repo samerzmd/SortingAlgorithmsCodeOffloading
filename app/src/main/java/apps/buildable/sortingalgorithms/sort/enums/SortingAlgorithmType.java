@@ -5,7 +5,7 @@ package apps.buildable.sortingalgorithms.sort.enums;
  */
 
 public enum SortingAlgorithmType {
-    QuickSort("QuickSort"),InsertionSort("InsertionSort");
+    QuickSort("QuickSort"),InsertionSort("InsertionSort"),MergeSort("MergeSort");
     private final String value;
 
     SortingAlgorithmType(String value) {

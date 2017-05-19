@@ -18,6 +18,7 @@ import java.util.List;
 import apps.buildable.sortingalgorithms.R;
 import apps.buildable.sortingalgorithms.RetrofitInterface;
 import apps.buildable.sortingalgorithms.sort.algorithm.InsertionSort;
+import apps.buildable.sortingalgorithms.sort.algorithm.MergeSort;
 import apps.buildable.sortingalgorithms.sort.algorithm.QuickSort;
 import apps.buildable.sortingalgorithms.sort.algorithm.SortingAlgorithm;
 import apps.buildable.sortingalgorithms.sort.enums.SortingAlgorithmType;
@@ -61,6 +62,9 @@ public class SortingActivity extends AppCompatActivity {
                 break;
             case InsertionSort:
                 algorithmClass=new InsertionSort();
+                break;
+            case MergeSort:
+                algorithmClass=new MergeSort();
                 break;
         }
 

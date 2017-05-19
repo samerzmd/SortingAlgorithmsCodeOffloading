@@ -11,15 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:gravity="center"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/quickSortBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quick Sort"
-                android:tag="1"/>
+                android:tag="QuickSort"/>
+            <!--return to sorting algorithm enum for tag-->
+
+            <Button
+                android:id="@+id/insertionSortBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insertion sort"
+                android:tag="InsertionSort"/>
             <!--return to sorting algorithm enum for tag-->
 
         </LinearLayout>

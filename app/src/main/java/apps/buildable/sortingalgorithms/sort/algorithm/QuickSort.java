@@ -1,10 +1,12 @@
 /**
- * Provides an implementation of the quick sort algorithm.
+ * Provides an implementation of the quick InsertionSort algorithm.
  *
  * @author  Middleware Services
  */
 
 package apps.buildable.sortingalgorithms.sort.algorithm;
+
+import android.util.Log;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,8 +43,14 @@ public class QuickSort extends SortingAlgorithm {
 
     @Override
     public List<String> sort(String[] toSort) {
-
-        sorting(toSort,0,toSort.length-1);
+        quickSort(toSort);
         return  Arrays.asList(toSort);
+    }
+
+    private void quickSort(String[] toSort) {
+        final String method=new Object(){}.getClass().getEnclosingMethod().getName();
+        Log.i(method, " Start "+ String.valueOf(System.nanoTime()));
+        sorting(toSort,0,toSort.length-1);
+        Log.i(method, " End "+ String.valueOf(System.nanoTime()));
     }
 }

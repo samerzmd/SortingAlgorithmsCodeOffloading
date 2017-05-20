@@ -1,5 +1,7 @@
 package apps.buildable.sortingalgorithms.sort.algorithm;
 
+import android.util.Log;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +15,9 @@ public class InsertionSort extends SortingAlgorithm {
         sort(toSort);
         return Arrays.asList(toSort);
     }
-    public static void sort(Comparable[] a) {
+    public static void InsertionSort(Comparable[] a) {
+        final String method=new Object(){}.getClass().getEnclosingMethod().getName();
+        Log.i(method, " Start "+ String.valueOf(System.nanoTime()));
         int n = a.length;
         for (int i = 1; i < n; i++) {
             for (int j = i; j > 0; j--) {
@@ -23,6 +27,7 @@ public class InsertionSort extends SortingAlgorithm {
                 else break;
             }
         }
+        Log.i(method, " End "+ String.valueOf(System.nanoTime()));
     }
 
     // exchange a[i] and a[j]

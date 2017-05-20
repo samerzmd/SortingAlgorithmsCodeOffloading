@@ -1,5 +1,7 @@
 package apps.buildable.sortingalgorithms.sort.algorithm;
 
+import android.util.Log;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
 public class MergeSort extends SortingAlgorithm {
     @Override
     public List<String> sort(String[] toSort) {
-        sort((Comparable[]) toSort);
+        mergeSort((Comparable[]) toSort);
         return Arrays.asList(toSort);
     }
 
@@ -33,15 +35,15 @@ public class MergeSort extends SortingAlgorithm {
      *  Mergesort the subarray a[lo] .. a[hi-1], using the
      *  auxilliary array aux[] as scratch space.
      ***************************************************************************/
-    public static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+    public static void mergeSort(Comparable[] a, Comparable[] aux, int lo, int hi) {
 
         // base case
         if (hi - lo <= 1) return;
 
-        // sort each half, recursively
+        // InsertionSort each half, recursively
         int mid = lo + (hi - lo) / 2;
-        sort(a, aux, lo, mid);
-        sort(a, aux, mid, hi);
+        mergeSort(a, aux, lo, mid);
+        mergeSort(a, aux, mid, hi);
 
         // merge back together
         merge(a, aux, lo, mid, hi);
@@ -51,19 +53,22 @@ public class MergeSort extends SortingAlgorithm {
     /***************************************************************************
      *  Sort the array a using mergesort.
      ***************************************************************************/
-    public static void sort(Comparable[] a) {
+    public static void mergeSort(Comparable[] a) {
+        final String method=new Object(){}.getClass().getEnclosingMethod().getName();
+        Log.i(method, " Start "+ String.valueOf(System.nanoTime()));
         int n = a.length;
         Comparable[] aux = new Comparable[n];
-        sort(a, aux, 0, n);
+        mergeSort(a, aux, 0, n);
+        Log.i(method, " End "+ String.valueOf(System.nanoTime()));
     }
 
     /***************************************************************************
      *  Sort the subarray a[lo..hi] using mergesort.
      ***************************************************************************/
-    public static void sort(Comparable[] a, int lo, int hi) {
+    public static void mergeSort(Comparable[] a, int lo, int hi) {
         int n = hi - lo + 1;
         Comparable[] aux = new Comparable[n];
-        sort(a, aux, lo, hi);
+        mergeSort(a, aux, lo, hi);
     }
 
 

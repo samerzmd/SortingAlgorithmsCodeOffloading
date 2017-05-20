@@ -52,7 +52,7 @@ class Log {
         } else {
             sLogObjects.add(new LogObject(name, param));
         }
-        if (sLogObjects.size() == 17 && needReport) {
+        if (sLogObjects.size() == 4 && needReport) {
             needReport = false;
 
             final long googleTime = System.nanoTime();

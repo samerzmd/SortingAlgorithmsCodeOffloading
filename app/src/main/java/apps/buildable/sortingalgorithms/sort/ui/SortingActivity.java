@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -111,11 +112,13 @@ public class SortingActivity extends AppCompatActivity {
                             }
 
                             private void sortOnServer() {
+                                final String method=new Object(){}.getClass().getEnclosingMethod().getName();
+                                Log.i(method, " Start "+ String.valueOf(System.nanoTime()));
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         Retrofit retrofit = new Retrofit.Builder()
-                                                .baseUrl("http://samerzmd/cols/api/")
+                                                .baseUrl("http://codeoffloadingserverjor.azurewebsites.net/cols/api/")
                                                 .addConverterFactory(GsonConverterFactory.create())
                                                 .build();
 
@@ -128,6 +131,7 @@ public class SortingActivity extends AppCompatActivity {
                                             @Override
                                             public void onResponse(@NonNull Call<List<String>> call, @NonNull retrofit2.Response<List<String>> response) {
                                                 fillList(response.body());
+                                                Log.i(method, " End "+ String.valueOf(System.nanoTime()));
                                             }
 
                                             @Override
@@ -141,18 +145,15 @@ public class SortingActivity extends AppCompatActivity {
                             }
 
                             private void sortLocally() {
+
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
-                                                try {
-                                                    Thread.sleep(2000);
-                                                } catch (InterruptedException e) {
-                                                    e.printStackTrace();
-                                                }
+                                        final List<String> strings = finalAlgorithmClass.sort(array);
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                final List<String> strings = finalAlgorithmClass.sort(array);
+
                                                 fillList(strings);
                                             }
                                         });
